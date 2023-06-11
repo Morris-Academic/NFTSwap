@@ -23,7 +23,7 @@ export const Fulfill: React.FC = () => {
     setPath(sss.substring(6));
   },[]);
 
-  // urlのhashを起因にIPFSからの読み込み
+  //由於url hash的原因，從IPFS讀取
   const load = async () => {
     const ipfsUrl = "https://ipfs.io/ipfs/" + path
     const res = await axios.get(ipfsUrl);
