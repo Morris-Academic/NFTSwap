@@ -50,7 +50,7 @@ export const Request: React.FC = () => {
   const [tokenType2, setTokenType2] = React.useState() as any;
   const [orderURI, setOrderURI] = React.useState("");
     const toast = useToast();
-  const rpc = "https://rinkeby.infura.io/v3/95f65ab099894076814e8526f52c9149";
+  const rpc = "https://goerli.infura.io/v3/fdb2a31354474618bb8a19ba4f00c432";
   const provider = new ethers.providers.JsonRpcProvider(rpc);
   const { onCopy } = useClipboard(orderURI);
   const { activate, library, account } = useWeb3React<Web3Provider>();
@@ -205,7 +205,7 @@ export const Request: React.FC = () => {
 
     // TODO: Send Link of Seaport
     await offererToOwner.send("New offer !!");
-    const link = "https://otc-swap.vercel.app/fill/" + path;
+    const link = "https://nftswap-alpha.vercel.app/fill/" + path;
     await offererToOwner.send(link);
 
     const msg = await (await stream.next()).value;
@@ -228,7 +228,7 @@ export const Request: React.FC = () => {
           <FormControl isInvalid={assetURIErrorMessage != ""} mb="4">
             <Input
               variant="filled"
-              placeholder="OpenSea/TofuNFT URL"
+              placeholder="OpenSea testnet URL"
               onChange={handleAssetURIChange}
               rounded={"2xl"}
               fontSize={"sm"}
