@@ -1,9 +1,9 @@
 {
-  "rinkeby": {
-    "chainId": 4,
+  "goerli": {
+    "chainId": 5,
     "contracts": {
-      "kaguraswap": "0x3fE11c0CCD9897f6cfe990916208370d1b6f98D6"
+      "Goerliswap": "0x932ca55b9ef0b3094e8fa82435b3b4c50d713043"
     },
-    "exproler": "https://rinkeby.etherscan.io/"
+    "exproler": "https://goerli.etherscan.io/"
   }
 }
