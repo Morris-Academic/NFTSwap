@@ -79,6 +79,8 @@ export const Request: React.FC = () => {
     setTokenId2(inputValue);
   };
 
+
+
   const handleAssetURIChange = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -102,6 +104,7 @@ export const Request: React.FC = () => {
     const contract = new ethers.Contract(nftContractAddress, abi, provider);
     const owner = await contract.ownerOf(tokenId);
     // const address = setAssetURIErrorMessage("");
+    console.log(owner, "owner");
     setNFTContractAddress(nftContractAddress);
     setTokenId(tokenId);
     setNetwork(network);
@@ -219,10 +222,8 @@ export const Request: React.FC = () => {
   };
 
   return (
-    <Box textAlign="center">
-      <Text fontWeight="bold" fontSize={"md"} mb="8">
-        Create Order
-      </Text>
+    <Box>
+      <Text>Create Order</Text>
       {!orderURI ? (
         <Box>
           <FormControl isInvalid={assetURIErrorMessage != ""} mb="4">
@@ -263,33 +264,34 @@ export const Request: React.FC = () => {
               </Box>
               <Text>Token 1</Text>
               <Box>
-                <Select placeholder="Select option" onChange={handleTokenType1}>
+                <Select placeholder="Select token type" onChange={handleTokenType1}>
                   <option value="ERC20">ERC20</option>
                   <option value="ERC721">ERC721</option>
                   <option value="ERC1155">ERC1155</option>
                 </Select>
                 <Input
-                  placeholder="ContractAddress"
+                  placeholder="Asset URI"
                   onChange={handleChangeContractAddress1}
                 ></Input>
                 <Input
-                  placeholder="tokenId"
+                  placeholder="Token ID"
                   onChange={handleChangeTokenId1}
                 ></Input>
               </Box>
               <Text mt="10">Token 2</Text>
               <Box>
-                <Select placeholder="Select option" onChange={handleTokenType2}>
+                <Select placeholder="Select token type" onChange={handleTokenType2}>
                   <option value="ERC20">ERC20</option>
                   <option value="ERC721">ERC721</option>
                   <option value="ERC1155">ERC1155</option>
                 </Select>
                 <Input
-                  placeholder="ContractAddress"
+                  placeholder="Asset URI"
+                  value={assetURI}
                   onChange={handleChangeContractAddress2}
                 ></Input>
                 <Input
-                  placeholder="tokenId"
+                  placeholder="Token ID"
                   onChange={handleChangeTokenId2}
                 ></Input>
               </Box>
